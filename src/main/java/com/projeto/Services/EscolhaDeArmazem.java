@@ -2,7 +2,7 @@ package com.projeto.Services;
 
 import java.util.Scanner;
 
-import com.projeto.Views.MenuEscolhaDeArmazem;
+import com.projeto.Views.Menu;
 
 public class EscolhaDeArmazem {
   private EscolhaDeArmazem() {}
@@ -11,7 +11,7 @@ public class EscolhaDeArmazem {
   public static void execEscolhaDeArmazem() {
     int opcao = 0;
 
-    MenuEscolhaDeArmazem.execMenuEscolhaDeArmazem();
+    Menu.execMenuEscolhaDeArmazem();
     opcao = scanner.nextInt();
   }
 }

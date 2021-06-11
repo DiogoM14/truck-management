@@ -2,16 +2,13 @@ package com.projeto;
 
 import java.util.Scanner;
 
-import com.projeto.Classes.Armazem;
-import com.projeto.Classes.LinkedList.Cais;
-import com.projeto.Classes.LinkedList.LinkedList;
 import com.projeto.Services.EscolhaDeArmazem;
+import com.projeto.Services.GestaoDeCamioes;
 import com.projeto.Views.Menu;
 
 public class App {
     public static void main(String[] args) {
         // final Armazem armazem1 = new Armazem();
-        
         execApp();
     }
 
@@ -28,11 +25,15 @@ public class App {
                 case 0:
                 break;
                 case 1:
-                EscolhaDeArmazem.execEscolhaDeArmazem();
-                Menu.execMenu();
+                    EscolhaDeArmazem.execEscolhaDeArmazem();
+                    Menu.execMenu();
+                break;
+                case 2:
+                    GestaoDeCamioes.execGestaoDeCamioes();
+                    Menu.execMenu();
                 break;
                 default:
-                System.out.println("Opção inválida");
+                    System.out.println("Opção inválida");
             }
         } while (opcao != 0);
         scanner.close();

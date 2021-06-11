@@ -4,35 +4,35 @@ import com.projeto.Classes.Camiao;
 
 public class LinkedList<T> {
   private Node<Camiao> head, tail;
-  private int capacity;
+  private boolean isFull;
 
   public LinkedList() {
     head = null;
     tail = null;
-    capacity = 0;
+    isFull = false;
   }
 
   public void createCais() {
-    Node<Camiao> porta = new Node<>();
+    Node<Camiao> cais = new Node<>();
 
     for (int i = 0; i < 6; i++) {
       if (head == null) {
-        head = porta;
+        head = cais;
         head.setNext(null);
       } else if (tail == null) {
-        tail = porta;
+        tail = cais;
         tail.setNext(null);
         head.setNext(tail);
       } else {
-        tail.setNext(porta);
-        tail = porta;
+        tail.setNext(cais);
+        tail = cais;
       }
     }
   }
 
   // Adding to end of LinkedList
   public void add(Camiao camiao) {
-    if (this.capacity == 6) {
+    if (this.isFull) {
       System.out.println("Cais cheio.");
     } else {
       Node<Camiao> current = head;
