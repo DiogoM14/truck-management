@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) {
         LinkedList<Camiao> cais = new LinkedList<>();
         Armazem armazem1 = new Armazem("Porto 1", "Porto", cais);
-        Armazem armazem2 = new Armazem("Lisboa 1", "Lisboa", cais);
+        // Armazem armazem2 = new Armazem("Lisboa 1", "Lisboa", cais);
 
         Camiao camiao1 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
         Camiao camiao2 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
@@ -21,7 +21,7 @@ public class App {
         Camiao camiao4 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
         Camiao camiao5 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
         Camiao camiao6 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao7 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
+        Camiao camiao7 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00); 
 
         System.out.println(camiao1.toString());
 
@@ -30,8 +30,9 @@ public class App {
         cais.add(camiao3);
         cais.add(camiao4);
         cais.add(camiao5);
-        cais.add(camiao6);
-        cais.add(camiao7);
+        // cais.add(camiao6);
+        // cais.add(camiao7);
+        // System.out.println("VAI DAR CARALHO!" + cais.get());
         System.out.println(cais.toString());
 
         execApp();
