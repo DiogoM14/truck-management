@@ -16,6 +16,7 @@ public class GestaoDeCamioes {
 
     if (opcao == 1) {
       Menu.execMenuGestaoDeCamiao();
+      
     }
   }
 }

@@ -5,10 +5,10 @@ public class Camiao {
   private Armazem destino;
   private String hora_chegada;
   private String dia_chegada;
-  private Float tara;
-  private Float carga;
+  private Double tara;
+  private Double carga;
 
-  public Camiao(String matricula, Armazem destino, String hora_chegada, String dia_chegada, Float tara, Float carga) {
+  public Camiao(String matricula, Armazem destino, String hora_chegada, String dia_chegada, Double tara, Double carga) {
     this.matricula = matricula;
     this.destino = destino;
     this.hora_chegada = hora_chegada;
@@ -49,19 +49,19 @@ public class Camiao {
     this.dia_chegada = dia_chegada;
   }
 
-  public Float getTara() {
+  public Double getTara() {
     return this.tara;
   }
 
-  public void setTara(Float tara) {
+  public void setTara(Double tara) {
     this.tara = tara;
   }
 
-  public Float getCarga() {
+  public Double getCarga() {
     return this.carga;
   }
 
-  public void setCarga(Float carga) {
+  public void setCarga(Double carga) {
     this.carga = carga;
   }
 
