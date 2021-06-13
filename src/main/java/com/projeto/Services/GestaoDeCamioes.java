@@ -1,22 +1,52 @@
 package com.projeto.Services;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.projeto.Views.Menu;
+import com.projeto.Classes.Armazem;
+import com.projeto.Classes.Camiao;
+import com.projeto.Classes.LinkedList.LinkedList;
 
 public class GestaoDeCamioes {
   private GestaoDeCamioes() {}
   static Scanner scanner = new Scanner(System.in);
 
-  public static void execGestaoDeCamioes() {
-    int opcao = 0;
+  public static void execGestaoDeCamioes(ArrayList<Armazem> armazens) {
+    String matricula, hora_chegada, dia_chegada;
+    Double tara, carga;
+    Armazem armazem;
+    LinkedList<Camiao> cais;
+    int numeroArmazem;
 
-    Menu.execMenuEscolhaCamiao();
-    opcao = scanner.nextInt();
+      // Formulário -------------------------------------------------------
+      System.out.println("\n");
+      System.out.println("Prima Enter para continuar... ");
+      scanner.nextLine();
+      System.out.print("Matricula -> ");
+      matricula = scanner.nextLine();
+      System.out.print("Hora de Chegada -> ");
+      hora_chegada = scanner.nextLine();
+      System.out.print("Armazem -> ");
+      numeroArmazem = scanner.nextInt();
+      System.out.print("Dia de chegada -> ");  
+      dia_chegada = scanner.nextLine();
+      System.out.print("Peso máximo -> ");
+      tara = scanner.nextDouble();
+      System.out.print("Carga -> ");
+      carga = scanner.nextDouble();
+      // ------------------------------------------------------------------
 
-    if (opcao == 1) {
-      Menu.execMenuGestaoDeCamiao();
-      
-    }
+      armazem = armazens.get(numeroArmazem);
+      cais = armazem.getCais();
+
+      Camiao camiao = new Camiao(matricula, armazem, hora_chegada, dia_chegada, tara, carga);
+
+      cais.addCamiao(camiao);
+      cais.addCamiao(camiao);
+      cais.addCamiao(camiao);
+      cais.addCamiao(camiao);
+      cais.addCamiao(camiao);
+
+      cais.escreverCamioes();
   }
 }

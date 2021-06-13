@@ -1,21 +1,15 @@
 package com.projeto.Classes;
 
-import java.util.ArrayList;
-
 import com.projeto.Classes.LinkedList.LinkedList;
 
 public class Armazem {
   private String nome;
-  private String localizacao;
   private LinkedList<Camiao> cais;
 
-  public Armazem(String nome, String localizacao, LinkedList<Camiao> cais) {
+  public Armazem(String nome, LinkedList<Camiao> cais) {
     this.nome = nome;
-    this.localizacao = localizacao;
     this.cais = cais;
   }
-
-  // public void addCamiao
 
   public String getNome() {
     return this.nome;
@@ -23,14 +17,6 @@ public class Armazem {
 
   public void setNome(String nome) {
     this.nome = nome;
-  }
-
-  public String getLocalizacao() {
-    return this.localizacao;
-  }
-
-  public void setLocalizacao(String localizacao) {
-    this.localizacao = localizacao;
   }
 
   public LinkedList<Camiao> getCais() {
@@ -41,8 +27,12 @@ public class Armazem {
     this.cais = cais;
   }
 
+
   @Override
   public String toString() {
-    return "{" + " cais='" + cais + "'" + "}";
+    return "{" +
+      " nome='" + getNome() + "'" +
+      ", cais='" + getCais() + "'" +
+      "}";
   }
 }

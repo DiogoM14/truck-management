@@ -7,45 +7,24 @@ public class LinkedList<T> {
   private int maxCapacity;
 
   public LinkedList() {
-    head = null;
-    tail = null;
+    head = tail = null;
     maxCapacity = 0;
   }
 
-  public void createCais() {
-    Node<Camiao> cais = new Node<>();
-
-    for (int i = 0; i < 6; i++) {
-      if (head == null) {
-        head = cais;
-        head.setNext(null);
-      } else if (tail == null) {
-        tail = cais;
-        tail.setNext(null);
-        head.setNext(tail);
-      } else {
-        tail.setNext(cais);
-        tail = cais;
-      }
-    }
-  }
-
-  // Adding to end of LinkedList
-  public void add(Camiao camiao) {
+  public void addCamiao(Camiao camiao) {
     if (this.maxCapacity >= 6) {
       System.out.println("Cais cheio.");
     } else {
-      Node<Camiao> current = head;
-      boolean found = false;
-
-      while (current != null && found == false) {
-        if (current.getCamiao() == null) {
-          current.setCamiao(camiao);
-          found = true;
+      Node<Camiao> newNode = new Node<Camiao>(camiao);
+      Node<Camiao> oldHead = head;
+      
+        if (head == null) {
+          head = newNode;
+          newNode.setNext(tail);
         } else {
-          current = current.getNext();
+          head = newNode;
+          newNode.setNext(oldHead);
         }
-      }
 
       maxCapacity ++;
     }
@@ -88,8 +67,17 @@ public class LinkedList<T> {
   //   }
   // }
 
-  @Override
-  public String toString() {
-    return "CAIS DO PORTO CARALHO";
+  public void escreverCamioes() {
+    Node<Camiao> current = head;
+    String result = "";
+    int count = 1;
+
+    while (current != null) {
+      result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
+      current = current.getNext();
+      count++;
+    }
+
+    System.out.println(result);
   }
 }

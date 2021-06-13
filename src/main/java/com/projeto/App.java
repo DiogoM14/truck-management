@@ -1,5 +1,6 @@
 package com.projeto;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.projeto.Classes.Armazem;
@@ -11,38 +12,42 @@ import com.projeto.Views.Menu;
 
 public class App {
     public static void main(String[] args) {
-        LinkedList<Camiao> cais = new LinkedList<>();
-        Armazem armazem1 = new Armazem("Porto 1", "Porto", cais);
-        // Armazem armazem2 = new Armazem("Lisboa 1", "Lisboa", cais);
+        ArrayList<Armazem> armazens = new ArrayList<>();
+        
+        LinkedList<Camiao> cais1 = new LinkedList<>();
+        LinkedList<Camiao> cais2 = new LinkedList<>();
+        LinkedList<Camiao> cais3 = new LinkedList<>();
+        LinkedList<Camiao> cais4 = new LinkedList<>();
+        LinkedList<Camiao> cais5 = new LinkedList<>();
+        LinkedList<Camiao> cais6 = new LinkedList<>();
+        LinkedList<Camiao> cais7 = new LinkedList<>();
+        LinkedList<Camiao> cais8 = new LinkedList<>();
+        
+        Armazem armazem1 = new Armazem("Portugal 1", cais1);
+        Armazem armazem2 = new Armazem("Portugal 2", cais2);
+        Armazem armazem3 = new Armazem("Espanha 1", cais3);
+        Armazem armazem4 = new Armazem("Espanha 2", cais4);
+        Armazem armazem5 = new Armazem("França 1", cais5);
+        Armazem armazem6 = new Armazem("França 2", cais6);
+        Armazem armazem7 = new Armazem("Alemanha 1", cais7);
+        Armazem armazem8 = new Armazem("Itália 1", cais8);
+        
+        armazens.add(armazem1);
+        armazens.add(armazem2);
+        armazens.add(armazem3);
+        armazens.add(armazem4);
+        armazens.add(armazem5);
+        armazens.add(armazem6);
+        armazens.add(armazem7);
+        armazens.add(armazem8);
 
-        Camiao camiao1 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao2 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao3 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao4 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao5 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao6 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00);
-        Camiao camiao7 = new Camiao("10-ZG-12", armazem1, "TESTE", "TESTE", 7500.00, 500.00); 
-
-        System.out.println(camiao1.toString());
-
-        cais.add(camiao1);
-        cais.add(camiao2);
-        cais.add(camiao3);
-        cais.add(camiao4);
-        cais.add(camiao5);
-        // cais.add(camiao6);
-        // cais.add(camiao7);
-        // System.out.println("VAI DAR CARALHO!" + cais.get());
-        System.out.println(cais.toString());
-
-        execApp();
+        execApp(armazens);
     }
 
-    public static void execApp() {
+    public static void execApp(ArrayList<Armazem> armazens) {
         Scanner scanner = new Scanner(System.in);
 
         Menu.execMenu();
-
         int opcao = 0;
 
         do {
@@ -55,7 +60,7 @@ public class App {
                     Menu.execMenu();
                 break;
                 case 2:
-                    GestaoDeCamioes.execGestaoDeCamioes();
+                    GestaoDeCamioes.execGestaoDeCamioes(armazens);
                     Menu.execMenu();
                 break;
                 default:

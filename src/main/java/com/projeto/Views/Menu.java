@@ -5,6 +5,8 @@ public class Menu {
 
   public static void execMenu() {
     System.out.println("\n");
+    System.out.println("\n");
+    System.out.println("\n");
     System.out.println("\tBem vindo ao Truck Manager");
     System.out.println("0. Sair");
     System.out.println("1. Escolha de armazem");
@@ -13,6 +15,8 @@ public class Menu {
   }
 
   public static void execMenuEscolhaDeArmazem() {
+    System.out.println("\n");
+    System.out.println("\n");
     System.out.println("\n");
     System.out.println("\tGestor de armazens");
     System.out.println("0. Sair");
@@ -29,6 +33,8 @@ public class Menu {
 
   public static void execMenuGestaoDeCamiao() {
     System.out.println("\n");
+    System.out.println("\n");
+    System.out.println("\n");
     System.out.println("\tBem vindo ao Truck Manager");
     System.out.println("0. Sair");
     System.out.println("1. Carregar Camião");
@@ -38,12 +44,12 @@ public class Menu {
 
   public static void execMenuEscolhaCamiao() {
     System.out.println("\n");
-    System.out.println("\tBem vindo ao Truck Manager");
+    System.out.println("\n");
+    System.out.println("\n");
+    System.out.println("\tGestor de Camiões");
     System.out.println("0. Sair");
-    System.out.println("1. Camião 1");
-    System.out.println("2. Camião 2");
-    System.out.println("3. Camião 3");
-    System.out.println("4. Camião 4");
+    System.out.println("1. Adicionar Camião");
+    System.out.println("2. Remover Camião");
     System.out.print("Opção: ");
   }
 }

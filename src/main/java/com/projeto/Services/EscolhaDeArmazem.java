@@ -13,5 +13,7 @@ public class EscolhaDeArmazem {
 
     Menu.execMenuEscolhaDeArmazem();
     opcao = scanner.nextInt();
+
+    
   }
 }

@@ -2,15 +2,15 @@ package com.projeto.Classes;
 
 public class Camiao {
   private String matricula;
-  private Armazem destino;
+  private Armazem partida;
   private String hora_chegada;
   private String dia_chegada;
   private Double tara;
   private Double carga;
 
-  public Camiao(String matricula, Armazem destino, String hora_chegada, String dia_chegada, Double tara, Double carga) {
+  public Camiao(String matricula, Armazem partida, String hora_chegada, String dia_chegada, Double tara, Double carga) {
     this.matricula = matricula;
-    this.destino = destino;
+    this.partida = partida;
     this.hora_chegada = hora_chegada;
     this.dia_chegada = dia_chegada;
     this.tara = tara;
@@ -25,12 +25,12 @@ public class Camiao {
     this.matricula = matricula;
   }
 
-  public Armazem getDestino() {
-    return this.destino;
+  public Armazem getPartida() {
+    return this.partida;
   }
 
-  public void setDestino(Armazem destino) {
-    this.destino = destino;
+  public void setPartida(Armazem partida) {
+    this.partida = partida;
   }
 
   public String getHora_chegada() {
@@ -69,7 +69,7 @@ public class Camiao {
   public String toString() {
     return "{" +
       " matricula='" + getMatricula() + "'" +
-      ", destino='" + getDestino() + "'" +
+      ", partida='" + getPartida() + "'" +
       ", hora_chegada='" + getHora_chegada() + "'" +
       ", dia_chegada='" + getDia_chegada() + "'" +
       ", tara='" + getTara() + "'" +
