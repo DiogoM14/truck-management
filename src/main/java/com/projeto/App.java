@@ -22,7 +22,7 @@ public class App {
         LinkedList<Camiao> cais6 = new LinkedList<>();
         LinkedList<Camiao> cais7 = new LinkedList<>();
         LinkedList<Camiao> cais8 = new LinkedList<>();
-        
+
         Armazem armazem1 = new Armazem("Portugal 1", cais1);
         Armazem armazem2 = new Armazem("Portugal 2", cais2);
         Armazem armazem3 = new Armazem("Espanha 1", cais3);
