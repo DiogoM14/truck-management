@@ -6,14 +6,13 @@ import java.util.Scanner;
 import com.projeto.Classes.Armazem;
 import com.projeto.Classes.Camiao;
 import com.projeto.Classes.LinkedList.LinkedList;
-import com.projeto.Services.EscolhaDeArmazem;
 import com.projeto.Services.GestaoDeCamioes;
 import com.projeto.Views.Menu;
 
 public class App {
     public static void main(String[] args) {
         ArrayList<Armazem> armazens = new ArrayList<>();
-        
+
         LinkedList<Camiao> cais1 = new LinkedList<>();
         LinkedList<Camiao> cais2 = new LinkedList<>();
         LinkedList<Camiao> cais3 = new LinkedList<>();
@@ -22,7 +21,7 @@ public class App {
         LinkedList<Camiao> cais6 = new LinkedList<>();
         LinkedList<Camiao> cais7 = new LinkedList<>();
         LinkedList<Camiao> cais8 = new LinkedList<>();
-
+        
         Armazem armazem1 = new Armazem("Portugal 1", cais1);
         Armazem armazem2 = new Armazem("Portugal 2", cais2);
         Armazem armazem3 = new Armazem("Espanha 1", cais3);
@@ -40,7 +39,7 @@ public class App {
         armazens.add(armazem6);
         armazens.add(armazem7);
         armazens.add(armazem8);
-
+        
         execApp(armazens);
     }
 
@@ -52,21 +51,17 @@ public class App {
 
         do {
             opcao = scanner.nextInt();
-            switch (opcao) {
-                case 0:
+            
+            if (opcao >= 1 && opcao <= 8) {
+                GestaoDeCamioes.execGestaoDeCamioes(armazens, opcao);
+                Menu.execMenu();
+            } else if (opcao == 9) {
                 break;
-                case 1:
-                    EscolhaDeArmazem.execEscolhaDeArmazem();
-                    Menu.execMenu();
-                break;
-                case 2:
-                    GestaoDeCamioes.execGestaoDeCamioes(armazens);
-                    Menu.execMenu();
-                break;
-                default:
-                    System.out.println("Opção inválida");
+            } else {
+                System.out.println("Opção inválida");
+                Menu.execMenu();
             }
-        } while (opcao != 0);
+        } while (opcao != 9);
         scanner.close();
     }
 }

@@ -25,10 +25,14 @@ public class Node<Camiao> {
   }
 
   public Camiao getElement() { 
-    return camiao; 
+    return camiao;
   }
 
   public void setElement(Camiao cam) {
     camiao = cam;
+  }
+
+  public void getCamiao() { 
+    System.out.print(camiao);
   }
 }
