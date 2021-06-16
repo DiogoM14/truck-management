@@ -1,20 +1,20 @@
-package com.company.Queue;
+package com.projeto.Classes.Queue;
 
 public class Node<Camiao> {
-  private Camiao element;
+  private Camiao camiao;
   private Node<Camiao> next;
 
-  public Node(Camiao element) {
-    this.element = element;
+  public Node(Camiao camiao) {
+    this.camiao = camiao;
     this.next = null;
   }
 
-  public Camiao getElement() {
-    return element;
+  public Camiao getCamiao() {
+    return camiao;
   }
 
-  public void setElement(Camiao element) {
-    this.element = element;
+  public void setCamiao(Camiao camiao) {
+    this.camiao = camiao;
   }
 
   public Node<Camiao> getNext() {

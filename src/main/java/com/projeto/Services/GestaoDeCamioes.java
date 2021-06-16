@@ -7,6 +7,7 @@ import com.projeto.Classes.Armazem;
 import com.projeto.Classes.Camiao;
 import com.projeto.Classes.Enum.CargaDescarga;
 import com.projeto.Classes.LinkedList.LinkedList;
+import com.projeto.Classes.Queue.CircularArrayQueue;
 
 public class GestaoDeCamioes {
   private GestaoDeCamioes() {}
@@ -18,6 +19,7 @@ public class GestaoDeCamioes {
     Armazem armazem;
     LinkedList<Camiao> cais;
     int escolha, cargaDescarga = 0;
+    CircularArrayQueue<Camiao> parque;
     
     System.out.println("1. Adicionar camião");
     System.out.println("2. Procurar entre pesos");
@@ -44,6 +46,7 @@ public class GestaoDeCamioes {
       // ------------------------------------------------------------------
 
       armazem = armazens.get(opcao);
+      parque = armazem.getParque();
       cais = armazem.getCais();
 
       while (cargaDescarga != 1 && cargaDescarga != 2) {
@@ -55,12 +58,17 @@ public class GestaoDeCamioes {
         CargaDescarga type = CargaDescarga.valueOf("CARGA");
 
         Camiao camiao = new Camiao(matricula, armazem, hora_chegada, dia_chegada, type, tara, carga);
-        cais.addCamiao(camiao);
+        
+        parque.enqueue(camiao);
+        cais.addCamiao(parque.dequeue());
+        parque.toString();
       } else if (cargaDescarga == 2) {
         CargaDescarga type = CargaDescarga.valueOf("DESCARGA");
 
         Camiao camiao = new Camiao(matricula, armazem, hora_chegada, dia_chegada, type, tara, carga);
-        cais.addCamiao(camiao);
+        
+        parque.enqueue(camiao);
+        cais.addCamiao(parque.dequeue());
       }
       
       // cais.removeCamiao(camiao2);

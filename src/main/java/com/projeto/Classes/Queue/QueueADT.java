@@ -1,11 +1,11 @@
-package com.company.Queue;
+package com.projeto.Classes.Queue;
 
-public interface QueueADT<T> {
-  public void enqueue(T element);
+public interface QueueADT<Camiao> {
+  public void enqueue(Camiao camiao);
 
-  public Node<T> dequeue();
+  public Node<Camiao> dequeue();
 
-  public Node<T> first();
+  public Node<Camiao> first();
 
   public boolean isEmpty();
 

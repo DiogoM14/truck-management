@@ -1,14 +1,17 @@
 package com.projeto.Classes;
 
 import com.projeto.Classes.LinkedList.LinkedList;
+import com.projeto.Classes.Queue.CircularArrayQueue;
 
 public class Armazem {
   private String nome;
   private LinkedList<Camiao> cais;
+  private CircularArrayQueue<Camiao> parque;
 
-  public Armazem(String nome, LinkedList<Camiao> cais) {
+  public Armazem(String nome, LinkedList<Camiao> cais, CircularArrayQueue<Camiao> parque) {
     this.nome = nome;
     this.cais = cais;
+    this.parque = parque;
   }
 
   public String getNome() {
@@ -27,12 +30,20 @@ public class Armazem {
     this.cais = cais;
   }
 
+  public CircularArrayQueue<Camiao> getParque() {
+    return this.parque;
+  }
+
+  public void setParque(CircularArrayQueue<Camiao> parque) {
+    this.parque = parque;
+  }
 
   @Override
   public String toString() {
     return "{" +
       " nome='" + getNome() + "'" +
       ", cais='" + getCais() + "'" +
+      ", parque='" + getParque() + "'" +
       "}";
   }
 }

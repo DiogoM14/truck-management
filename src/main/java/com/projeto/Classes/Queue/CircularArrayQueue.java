@@ -1,30 +1,26 @@
-package com.company.CircularArrayQueue;
+package com.projeto.Classes.Queue;
 
-public class CircularArrayQueue<T> {
-  private T[] arrayQueue;
+public class CircularArrayQueue<Camiao> {
+  private Camiao[] arrayQueue;
   private int size, front, back;
-  private static final int CAPACITY = 5;
+  private static final int CAPACITY = 50;
 
   public CircularArrayQueue() {
-    arrayQueue = (T[]) new Object[CAPACITY];
+    arrayQueue = (Camiao[]) new Object[CAPACITY];
     size = front = back = 0;
   }
 
-  public void enqueue(T element) {
-    if (isFull()) {
-      throw new IllegalStateException("Fila cheia");
-    } else {
-      arrayQueue[back] = element;
-      back = (back + 1) % CAPACITY;
-      size++;
-    }
+  public void enqueue(Camiao camiao) {
+    arrayQueue[back] = camiao;
+    back = (back + 1) % CAPACITY;
+    size++;
   }
 
-  public T dequeue() {
+  public Camiao dequeue() {
     if (isEmpty()) {
       throw new IllegalStateException("Fila vazia");
     } else {
-      T toReturn = arrayQueue[(front % CAPACITY)];
+      Camiao toReturn = arrayQueue[(front % CAPACITY)];
       arrayQueue[front] = null;
       front = (front + 1) % CAPACITY;
       size--;
@@ -32,7 +28,7 @@ public class CircularArrayQueue<T> {
     }
   }
 
-  public T first() {
+  public Camiao first() {
     return arrayQueue[front];
   }
 
@@ -53,11 +49,11 @@ public class CircularArrayQueue<T> {
     String text = "";
 
     if (isEmpty()) {
-      throw new IllegalStateException("Fila vazia");
-    }
-
-    for (int i = 0; i < size; i++) {
-      text += arrayQueue[(front + i) % CAPACITY] + " ";
+      System.out.println("A fila está vazia!");
+    } else {
+      for (int i = 0; i < size; i++) {
+        text += arrayQueue[(front + i) % CAPACITY] + " ";
+      }
     }
 
     return text;
