@@ -1,6 +1,7 @@
 package com.projeto.Classes.LinkedList;
 
 import com.projeto.Classes.Camiao;
+import com.projeto.Classes.Enum.CargaDescarga;
 
 public class LinkedList<T> {
   private Node<Camiao> head, tail;
@@ -27,7 +28,7 @@ public class LinkedList<T> {
       }
 
       sortList();
-      
+      sortCargaDescarga();
       maxCapacity ++;
     }
   }
@@ -110,6 +111,32 @@ public class LinkedList<T> {
       }
     }
   }
+    
+  public void sortCargaDescarga() {
+    Node<Camiao> current = head, index = null;
+    Camiao temp;
+    CargaDescarga carga = CargaDescarga.valueOf("CARGA");
+    
+    if (head == null) {
+      return;
+    }
+    else {
+      while (current != null) {
+        index = current.getNext();
+        
+        while (index != null) {
+          if (current.getElement().getCargaDescarga() == carga) {
+            temp = current.getElement();
+            current.setElement(index.getElement());
+            index.setElement(temp);
+          }
+          
+          index = index.getNext();
+        }
+        current = current.getNext();
+      }
+    }
+  }
   
   public void escreverCamioes() {
     Node<Camiao> current = head;
@@ -135,7 +162,7 @@ public class LinkedList<T> {
     int count = 1;
     
     while (current != null) {
-      if(current.getElement().getCarga()>min && current.getElement().getCarga()<max) {
+      if(current.getElement().getCarga()>min && current.getElement().getCarga() < max) {
         
         System.out.println("\n\n " + current.getElement().getCarga() + " ----- " + max + " ----- " + min + "\n\n ");
         result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
