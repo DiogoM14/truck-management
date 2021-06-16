@@ -2,6 +2,7 @@ package com.projeto.Classes.LinkedList;
 
 import com.projeto.Classes.Camiao;
 import com.projeto.Classes.Enum.CargaDescarga;
+import com.projeto.Classes.Queue.CircularArrayQueue;
 
 public class LinkedList<T> {
   private Node<Camiao> head, tail;
@@ -12,9 +13,9 @@ public class LinkedList<T> {
     maxCapacity = 0;
   }
   
-  public void addCamiao(Camiao camiao) {
+  public void addCamiao(Camiao camiao, CircularArrayQueue<Camiao> parque) {
     if (this.maxCapacity >= 6) {
-      System.out.println("Cais cheio.");
+      System.out.println("LINKEDZINHA" + parque);
     } else {
       Node<Camiao> newNode = new Node<Camiao>(camiao);
       Node<Camiao> oldHead = head;
@@ -174,5 +175,9 @@ public class LinkedList<T> {
       
     }
     System.out.println(result);
+  }
+
+  public int getOcupado() {
+    return maxCapacity;
   }
 }

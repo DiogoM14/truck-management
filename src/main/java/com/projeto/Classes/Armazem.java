@@ -11,7 +11,7 @@ public class Armazem {
   public Armazem(String nome, LinkedList<Camiao> cais, CircularArrayQueue<Camiao> parque) {
     this.nome = nome;
     this.cais = cais;
-    this.parque = parque;
+    this.parque = new CircularArrayQueue<>();
   }
 
   public String getNome() {
@@ -43,7 +43,7 @@ public class Armazem {
     return "{" +
       " nome='" + getNome() + "'" +
       ", cais='" + getCais() + "'" +
-      ", parque='" + getParque() + "'" +
+      ", parque='" + parque.toString() + "'" +
       "}";
   }
 }

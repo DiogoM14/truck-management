@@ -59,16 +59,51 @@ public class GestaoDeCamioes {
 
         Camiao camiao = new Camiao(matricula, armazem, hora_chegada, dia_chegada, type, tara, carga);
         
-        parque.enqueue(camiao);
-        cais.addCamiao(parque.dequeue());
-        parque.toString();
+
+        // if (filaEspera.enqueue(newCamiao1)) {
+        //   if (cais.getOccupied() == 6) {
+        //     if (getNextToLeaveHours() != null) {
+        //       cais.remove(getNextToLeaveHours());
+        //       cais.add(filaEspera.dequeue());
+        //     }
+        //   } else {
+        //     cais.add(filaEspera.dequeue());
+        //   }
+        // }
+        
+        // parque.enqueue(camiao);
+        // cais.addCamiao(parque.dequeue());
+        // parque.toString();
       } else if (cargaDescarga == 2) {
         CargaDescarga type = CargaDescarga.valueOf("DESCARGA");
 
         Camiao camiao = new Camiao(matricula, armazem, hora_chegada, dia_chegada, type, tara, carga);
+        Camiao camiao2 = new Camiao("matricula", armazem, "hora_chegada", "dia_chegada", type, 1.00, 1.00);
+        Camiao camiao3 = new Camiao("awd", armazem, "awdaw", "awdawd", type, 1.00, 1.00);
+        Camiao camiao4 = new Camiao("matricula", armazem, "hora_chegada", "dia_chegada", type, 1.00, 1.00);
+        Camiao camiao5 = new Camiao("awd", armazem, "awdaw", "awdawd", type, 1.00, 1.00);
+        Camiao camiao6 = new Camiao("matricula", armazem, "hora_chegada", "dia_chegada", type, 1.00, 1.00);
         
         parque.enqueue(camiao);
-        cais.addCamiao(parque.dequeue());
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.enqueue(camiao2);
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.enqueue(camiao3);
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.enqueue(camiao4);
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.enqueue(camiao5);
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.enqueue(camiao6);
+        cais.addCamiao(parque.dequeue(), parque);
+
+        parque.toString();
+        // System.out.println(parq<ue);
       }
       
       // cais.removeCamiao(camiao2);
@@ -94,7 +129,7 @@ public class GestaoDeCamioes {
 
   private static void pesquisaCamioes(Armazem armazem) {
     Scanner scanner = new Scanner(System.in);
-    
+
     Double cargaMin, cargaMax;
     Double carguita = 0.0;
 

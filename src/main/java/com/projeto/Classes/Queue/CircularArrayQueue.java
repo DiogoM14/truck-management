@@ -3,7 +3,7 @@ package com.projeto.Classes.Queue;
 public class CircularArrayQueue<Camiao> {
   private Camiao[] arrayQueue;
   private int size, front, back;
-  private static final int CAPACITY = 50;
+  private static final int CAPACITY = 44;
 
   public CircularArrayQueue() {
     arrayQueue = (Camiao[]) new Object[CAPACITY];
@@ -36,10 +36,6 @@ public class CircularArrayQueue<Camiao> {
     return size == 0;
   }
 
-  public boolean isFull() {
-    return size == CAPACITY;
-  }
-
   public int size() {
     return size;
   }
@@ -47,13 +43,15 @@ public class CircularArrayQueue<Camiao> {
   @Override
   public String toString() {
     String text = "";
+    int pos = 1;
 
     if (isEmpty()) {
       System.out.println("A fila está vazia!");
-    } else {
-      for (int i = 0; i < size; i++) {
-        text += arrayQueue[(front + i) % CAPACITY] + " ";
-      }
+    } 
+
+    for (int i = 0; i < size; i++) {
+      text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n";
+      pos++;
     }
 
     return text;
