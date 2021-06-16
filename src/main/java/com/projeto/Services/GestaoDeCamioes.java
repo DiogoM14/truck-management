@@ -88,7 +88,7 @@ public class GestaoDeCamioes {
     Scanner scanner = new Scanner(System.in);
     
     Double cargaMin, cargaMax;
-    Double carguita=0.0;
+    Double carguita = 0.0;
 
     System.out.print("Limite inferior -> ");
     cargaMin = scanner.nextDouble(); 
@@ -102,7 +102,7 @@ public class GestaoDeCamioes {
     }
 
     LinkedList<Camiao> cais;
-    cais=armazem.getCais();
+    cais = armazem.getCais();
 
     cais.pesquisaCamioes(cargaMin, cargaMax);
   }

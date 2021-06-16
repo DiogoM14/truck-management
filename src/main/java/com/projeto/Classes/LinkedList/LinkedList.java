@@ -25,6 +25,8 @@ public class LinkedList<T> {
         head = newNode;
         newNode.setNext(oldHead);
       }
+
+      sortList();
       
       maxCapacity ++;
     }
@@ -34,7 +36,7 @@ public class LinkedList<T> {
     if (head == null) {
       System.out.println("Cais vazio");
     }
-
+    
     boolean found = false;
     Node<Camiao> previous = null;
     Node<Camiao> current = head;
@@ -67,7 +69,7 @@ public class LinkedList<T> {
     
     return current.getElement();
   }
-
+  
   public String getByPeso(double pesoMinimo, double pesoMaximo) {
     Node<Camiao> current = head;
     String result = "";
@@ -80,8 +82,33 @@ public class LinkedList<T> {
     }
     
     System.out.println(result);
-
+    
     return result;
+  }
+  
+  public void sortList() {
+    Node<Camiao> current = head, index = null;
+    Camiao temp;
+    
+    if (head == null) {
+      return;
+    }
+    else {
+      while (current != null) {
+        index = current.getNext();
+        
+        while (index != null) {
+          if (current.getElement().getCarga() > index.getElement().getCarga()) {
+            temp = current.getElement();
+            current.setElement(index.getElement());
+            index.setElement(temp);
+          }
+          
+          index = index.getNext();
+        }
+        current = current.getNext();
+      }
+    }
   }
   
   public void escreverCamioes() {
@@ -101,24 +128,24 @@ public class LinkedList<T> {
     
     System.out.println(result);
   }
-
+  
   public void pesquisaCamioes(Double min, Double max) {
     Node<Camiao> current = head;
     String result = "";
     int count = 1;
-
+    
     while (current != null) {
       if(current.getElement().getCarga()>min && current.getElement().getCarga()<max) {
-
-      System.out.println("\n\n " + current.getElement().getCarga() + " ----- " + max + " ----- " + min + "\n\n ");
-      result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
+        
+        System.out.println("\n\n " + current.getElement().getCarga() + " ----- " + max + " ----- " + min + "\n\n ");
+        result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
+        
+        
+        count++;
+      }
+      current = current.getNext();
       
-      
-      count++;
     }
-    current = current.getNext();
-    
+    System.out.println(result);
   }
-  System.out.println(result);
-}
 }
