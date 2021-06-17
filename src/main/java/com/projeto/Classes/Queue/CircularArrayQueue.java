@@ -3,17 +3,19 @@ package com.projeto.Classes.Queue;
 public class CircularArrayQueue<Camiao> {
   private Camiao[] arrayQueue;
   private int size, front, back;
-  private static final int CAPACITY = 50;
+  private static final int CAPACITY = 44;
 
   public CircularArrayQueue() {
     arrayQueue = (Camiao[]) new Object[CAPACITY];
     size = front = back = 0;
   }
 
-  public void enqueue(Camiao camiao) {
+  public boolean enqueue(Camiao camiao) {
     arrayQueue[back] = camiao;
     back = (back + 1) % CAPACITY;
     size++;
+
+    return true;
   }
 
   public Camiao dequeue() {
@@ -36,25 +38,34 @@ public class CircularArrayQueue<Camiao> {
     return size == 0;
   }
 
-  public boolean isFull() {
-    return size == CAPACITY;
-  }
-
   public int size() {
     return size;
+  }
+
+  public void escreveParque() {
+    String text = "";
+    int pos = 1;
+    
+    for (int i = 0; i < size; i++) {
+      System.out.println(text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n");
+      pos++;
+    }
   }
 
   @Override
   public String toString() {
     String text = "";
+    int pos = 1;
 
-    if (isEmpty()) {
-      System.out.println("A fila está vazia!");
-    } else {
+    // if (isEmpty()) {
+    //   // System.out.println("A fila está vazia!");
+    // } 
       for (int i = 0; i < size; i++) {
-        text += arrayQueue[(front + i) % CAPACITY] + " ";
+        text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n";
+        pos++;
       }
-    }
+
+      System.out.println(text);
 
     return text;
   }

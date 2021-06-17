@@ -8,10 +8,10 @@ public class Armazem {
   private LinkedList<Camiao> cais;
   private CircularArrayQueue<Camiao> parque;
 
-  public Armazem(String nome, LinkedList<Camiao> cais, CircularArrayQueue<Camiao> parque) {
+  public Armazem(String nome) {
     this.nome = nome;
-    this.cais = cais;
-    this.parque = parque;
+    this.cais = new LinkedList<>();
+    this.parque = new CircularArrayQueue<>();
   }
 
   public String getNome() {
@@ -36,14 +36,5 @@ public class Armazem {
 
   public void setParque(CircularArrayQueue<Camiao> parque) {
     this.parque = parque;
-  }
-
-  @Override
-  public String toString() {
-    return "{" +
-      " nome='" + getNome() + "'" +
-      ", cais='" + getCais() + "'" +
-      ", parque='" + getParque() + "'" +
-      "}";
   }
 }
