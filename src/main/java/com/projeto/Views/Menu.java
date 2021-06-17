@@ -31,7 +31,7 @@ public class Menu {
     System.out.println("\n");
     System.out.println("\n");
     System.out.println("\n");
-    System.out.println("\tGestor de armazens");
+    System.out.println("Gestor de armazens");
     System.out.println("0. Sair");
 
     System.out.print("Opção: ");
@@ -41,21 +41,15 @@ public class Menu {
     System.out.println("\n");
     System.out.println("\n");
     System.out.println("\n");
-    System.out.println("\tBem vindo ao Truck Manager");
-    System.out.println("0. Sair");
-    System.out.println("1. Carregar Camião");
-    System.out.println("2. Selecionar Destino");
-    System.out.print("Opção: ");
-  }
+    System.out.println("\tGestão de camiões");
 
-  public static void execMenuEscolhaCamiao() {
-    System.out.println("\n");
-    System.out.println("\n");
-    System.out.println("\n");
-    System.out.println("\tGestor de Camiões");
-    System.out.println("0. Sair");
-    System.out.println("1. Adicionar Camião");
-    System.out.println("2. Remover Camião");
+    System.out.println("");
+    System.out.println("1. Adicionar camião");
+    System.out.println("2. Procurar entre pesos");
+    System.out.println("3. Ordenar por espaço livre");
+    System.out.println("4. Ordenar por Carga & Descarga");
+    System.out.println("");
+
     System.out.print("Opção: ");
   }
 }

@@ -1,8 +1,6 @@
 package com.projeto.Classes.LinkedList;
 
 import com.projeto.Classes.Camiao;
-import com.projeto.Classes.Enum.CargaDescarga;
-import com.projeto.Classes.Queue.CircularArrayQueue;
 
 public class LinkedList<T> {
   private Node<Camiao> head, tail;
@@ -13,9 +11,9 @@ public class LinkedList<T> {
     maxCapacity = 0;
   }
   
-  public void addCamiao(Camiao camiao, CircularArrayQueue<Camiao> parque) {
+  public void addCamiao(Camiao camiao) {
     if (this.maxCapacity >= 6) {
-      System.out.println("LINKEDZINHA" + parque);
+      System.out.println("Cais cheio!");
     } else {
       Node<Camiao> newNode = new Node<Camiao>(camiao);
       Node<Camiao> oldHead = head;
@@ -26,11 +24,9 @@ public class LinkedList<T> {
       } else {
         head = newNode;
         newNode.setNext(oldHead);
-      }
 
-      sortList();
-      sortCargaDescarga();
-      maxCapacity ++;
+        maxCapacity ++;
+      }
     }
   }
   
@@ -112,11 +108,11 @@ public class LinkedList<T> {
       }
     }
   }
-    
+  
   public void sortCargaDescarga() {
     Node<Camiao> current = head, index = null;
     Camiao temp;
-    CargaDescarga carga = CargaDescarga.valueOf("CARGA");
+    
     
     if (head == null) {
       return;
@@ -126,10 +122,19 @@ public class LinkedList<T> {
         index = current.getNext();
         
         while (index != null) {
-          if (current.getElement().getCargaDescarga() == carga) {
-            temp = current.getElement();
-            current.setElement(index.getElement());
-            index.setElement(temp);
+          double x,z, y,j;
+          
+          x=current.getElement().getCarga();
+          y=current.getElement().getTara();
+          z=index.getElement().getCarga();
+          j=index.getElement().getTara();
+          
+          if (current.getElement().getCargaDescarga() == index.getElement().getCargaDescarga()) {
+            if (y-x > j-z) {
+              temp = current.getElement();
+              current.setElement(index.getElement());
+              index.setElement(temp);
+            }
           }
           
           index = index.getNext();
@@ -163,11 +168,10 @@ public class LinkedList<T> {
     int count = 1;
     
     while (current != null) {
-      if(current.getElement().getCarga()>min && current.getElement().getCarga() < max) {
+      if(current.getElement().getCarga() > min && current.getElement().getCarga() < max) {
         
         System.out.println("\n\n " + current.getElement().getCarga() + " ----- " + max + " ----- " + min + "\n\n ");
         result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
-        
         
         count++;
       }
@@ -175,9 +179,5 @@ public class LinkedList<T> {
       
     }
     System.out.println(result);
-  }
-
-  public int getOcupado() {
-    return maxCapacity;
   }
 }

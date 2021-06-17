@@ -10,10 +10,12 @@ public class CircularArrayQueue<Camiao> {
     size = front = back = 0;
   }
 
-  public void enqueue(Camiao camiao) {
+  public boolean enqueue(Camiao camiao) {
     arrayQueue[back] = camiao;
     back = (back + 1) % CAPACITY;
     size++;
+
+    return true;
   }
 
   public Camiao dequeue() {
@@ -40,19 +42,28 @@ public class CircularArrayQueue<Camiao> {
     return size;
   }
 
+  public void escreveParque() {
+    String text = "";
+    int pos = 1;
+    
+    for (int i = 0; i < size; i++) {
+      System.out.println(text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n");
+      pos++;
+    }
+  }
+
   @Override
   public String toString() {
     String text = "";
     int pos = 1;
 
-    if (isEmpty()) {
-      System.out.println("A fila está vazia!");
-    } 
-
-    for (int i = 0; i < size; i++) {
-      text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n";
-      pos++;
-    }
+    // if (isEmpty()) {
+    //   // System.out.println("A fila está vazia!");
+    // } 
+      for (int i = 0; i < size; i++) {
+        System.out.println(text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n");
+        pos++;
+      }
 
     return text;
   }
