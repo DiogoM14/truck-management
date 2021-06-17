@@ -61,9 +61,11 @@ public class CircularArrayQueue<Camiao> {
     //   // System.out.println("A fila está vazia!");
     // } 
       for (int i = 0; i < size; i++) {
-        System.out.println(text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n");
+        text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n";
         pos++;
       }
+
+      System.out.println(text);
 
     return text;
   }

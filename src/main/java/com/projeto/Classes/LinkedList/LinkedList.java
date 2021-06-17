@@ -10,6 +10,14 @@ public class LinkedList<T> {
     head = tail = null;
     maxCapacity = 0;
   }
+
+  public int getMaxCapacity() {
+    return maxCapacity;
+  }
+
+  public void setMaxCapacity(int maxCapacity) {
+    this.maxCapacity = maxCapacity;
+  }
   
   public void addCamiao(Camiao camiao) {
     if (this.maxCapacity >= 6) {
@@ -113,7 +121,6 @@ public class LinkedList<T> {
     Node<Camiao> current = head, index = null;
     Camiao temp;
     
-    
     if (head == null) {
       return;
     }
@@ -179,5 +186,25 @@ public class LinkedList<T> {
       
     }
     System.out.println(result);
+  }
+
+  public Node<Camiao> getHead() {
+    return head;
+  }
+
+  public Camiao getNextToLeaveHours() {
+    Node<Camiao> current = head;
+    double horasMax = 0;
+    Camiao toLeave = null;
+
+    while (current != null) {
+      if (current.getElement().getHorasNoCais() > horasMax && current.getElement().getHorasNoCais() >= 24) {
+        toLeave = current.getElement();
+        horasMax = current.getElement().getHorasNoCais();
+      }
+      current = current.getNext();
+    }
+
+    return toLeave;
   }
 }

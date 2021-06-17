@@ -7,15 +7,17 @@ public class Camiao {
   private Armazem partida;
   private String hora_chegada;
   private String dia_chegada;
+  private int horasNoCais;
   private CargaDescarga cargaDescarga;
   private Double tara;
   private Double carga;
 
-  public Camiao(String matricula, Armazem partida, String hora_chegada, String dia_chegada, CargaDescarga cargaDescarga, Double tara, Double carga) {
+  public Camiao(String matricula, Armazem partida, String hora_chegada, String dia_chegada, int horasNoCais, CargaDescarga cargaDescarga, Double tara, Double carga) {
     this.matricula = matricula;
     this.partida = partida;
     this.hora_chegada = hora_chegada;
     this.dia_chegada = dia_chegada;
+    this.horasNoCais = horasNoCais;
     this.cargaDescarga = cargaDescarga;
     this.tara = tara;
     this.carga = carga;
@@ -53,6 +55,14 @@ public class Camiao {
     this.dia_chegada = dia_chegada;
   }
 
+  public int getHorasNoCais() {
+    return this.horasNoCais;
+  }
+
+  public void setHorasNoCais(int horasNoCais) {
+    this.horasNoCais = horasNoCais;
+  }
+
   public CargaDescarga getCargaDescarga() {
     return this.cargaDescarga;
   }
@@ -84,6 +94,7 @@ public class Camiao {
       ", partida='" + getPartida() + "'" +
       ", hora_chegada='" + getHora_chegada() + "'" +
       ", dia_chegada='" + getDia_chegada() + "'" +
+      ", horasNoCais='" + getHorasNoCais() + "'" +
       ", cargaDescarga='" + getCargaDescarga() + "'" +
       ", tara='" + getTara() + "'" +
       ", carga='" + getCarga() + "'" +

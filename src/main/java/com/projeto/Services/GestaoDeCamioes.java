@@ -23,7 +23,7 @@ public class GestaoDeCamioes {
     
     String matricula, hora_chegada, dia_chegada;
     Double tara, carga, pesoMinimo, pesoMaximo;
-    int escolha, cargaDescarga = 0;
+    int escolha, cargaDescarga, horasNoCais = 0;
     
     // Menu de entrada --------------------------------------------------
     Menu.execMenuGestaoDeCamiao();
@@ -40,13 +40,15 @@ public class GestaoDeCamioes {
       System.out.println("\n");
       System.out.println("\n");
       System.out.println("\n");
-      
+
       System.out.print("Matricula -> ");
       matricula = scanner.next();
       System.out.print("Hora de Chegada -> ");
       hora_chegada = scanner.next();
       System.out.print("Dia de chegada -> ");  
       dia_chegada = scanner.next();
+      System.out.print("Horas no cais -> ");
+      horasNoCais = scanner.nextInt();
       System.out.print("Peso máximo -> ");
       tara = scanner.nextDouble();
       System.out.print("Carga -> ");
@@ -71,49 +73,98 @@ public class GestaoDeCamioes {
         type = CargaDescarga.valueOf("DESCARGA");
       }
       
-      Camiao camiao1 = new Camiao(matricula, armazem, hora_chegada, dia_chegada, type, tara, carga);
+      Camiao camiao1 = new Camiao(matricula, armazem, hora_chegada, dia_chegada, horasNoCais, type, tara, carga);
       
-      // CAMIÕES EXEMPLO -------------------------------------------------------------------------------
-      Camiao camiao2 = new Camiao("12-FO-12", armazem, "20:45H", "30-06-2021", type, 2500.00, 2300.00);
-      Camiao camiao3 = new Camiao("23-DA-76", armazem, "14:00H", "27-06-2021", type, 2500.00, 1500.00);
-      Camiao camiao4 = new Camiao("12-ZA-54", armazem, "14:45H", "21-06-2021", type, 3500.00, 3310.40);
-      Camiao camiao5 = new Camiao("76-SG-97", armazem, "13:00H", "21-06-2021", type, 1700.00, 1600.00);
-      Camiao camiao6 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", type, 2500.00, 2430.20);
-      Camiao camiao7 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", type, 2500.00, 2430.20);
-      // -----------------------------------------------------------------------------------------------
+      // CAMIÕES EXEMPLO ------------------------------------------------------------------------------------
+      Camiao camiao2 = new Camiao("12-FO-12", armazem, "20:45H", "30-06-2021", 24, type, 2500.00, 2300.00);
+      Camiao camiao3 = new Camiao("23-DA-76", armazem, "14:00H", "27-06-2021", 12, type, 2500.00, 1500.00);
+      Camiao camiao4 = new Camiao("12-ZA-54", armazem, "14:45H", "21-06-2021", 37, type, 3500.00, 3310.40);
+      Camiao camiao5 = new Camiao("76-SG-97", armazem, "13:00H", "21-06-2021", 8, type, 1700.00, 1600.00);
+      Camiao camiao6 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", 10, type, 2500.00, 2430.20);
+      Camiao camiao7 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", 12, type, 2500.00, 2430.20);
+      // ----------------------------------------------------------------------------------------------------
       
       if (parque.enqueue(camiao1)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao2)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao3)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao4)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao5)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao6)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
       if (parque.enqueue(camiao7)) {
-        cais.addCamiao(parque.dequeue()); 
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
       }
 
-      System.out.println("---===== Cais ===== ---");
+      System.out.println("\n");
+      System.out.println("---=====- Cais -=====---");
       cais.escreverCamioes();
-      System.out.println("---===== Fila de espera =====---");
-      
+      System.out.println("---=====- Fila de espera -=====---");
       System.out.println(parque);
       
     } else if (escolha == 2) {
