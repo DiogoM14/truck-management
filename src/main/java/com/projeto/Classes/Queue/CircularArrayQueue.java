@@ -47,12 +47,11 @@ public class CircularArrayQueue<Camiao> {
     String text = "";
     int pos = 1;
     
-    for (int i = 0; i < size; i++) {
-      text += "Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n";
+    for (int i = 0; i < size; i++) {  
+      System.out.println("Pos. " + pos + "\t" + arrayQueue[(front + i) % CAPACITY] + "\n");
       pos++;
     }
     
-    System.out.println(text);
     
     return text;
   }
