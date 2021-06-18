@@ -40,7 +40,7 @@ public class GestaoDeCamioes {
       System.out.println("\n");
       System.out.println("\n");
       System.out.println("\n");
-
+      
       System.out.print("Matricula -> ");
       matricula = scanner.next();
       System.out.print("Hora de Chegada -> ");
@@ -81,8 +81,7 @@ public class GestaoDeCamioes {
       Camiao camiao4 = new Camiao("12-ZA-54", armazem, "14:45H", "21-06-2021", 37, type, 3500.00, 3310.40);
       Camiao camiao5 = new Camiao("76-SG-97", armazem, "13:00H", "21-06-2021", 8, type, 1700.00, 1600.00);
       Camiao camiao6 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", 10, type, 2500.00, 2430.20);
-      Camiao camiao7 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", 12, type, 2500.00, 2430.20);
-      // ----------------------------------------------------------------------------------------------------
+      // ---------------------------------------------------------------------------------------------------- 
       
       if (parque.enqueue(camiao1)) {
         if (cais.getMaxCapacity() == 6) {
@@ -94,7 +93,7 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
-
+      
       if (parque.enqueue(camiao2)) {
         if (cais.getMaxCapacity() == 6) {
           if (cais.getNextToLeaveHours() != null) {
@@ -105,7 +104,7 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
-
+      
       if (parque.enqueue(camiao3)) {
         if (cais.getMaxCapacity() == 6) {
           if (cais.getNextToLeaveHours() != null) {
@@ -116,7 +115,7 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
-
+      
       if (parque.enqueue(camiao4)) {
         if (cais.getMaxCapacity() == 6) {
           if (cais.getNextToLeaveHours() != null) {
@@ -127,7 +126,7 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
-
+      
       if (parque.enqueue(camiao5)) {
         if (cais.getMaxCapacity() == 6) {
           if (cais.getNextToLeaveHours() != null) {
@@ -138,29 +137,7 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
-
-      if (parque.enqueue(camiao6)) {
-        if (cais.getMaxCapacity() == 6) {
-          if (cais.getNextToLeaveHours() != null) {
-            cais.removeCamiao(cais.getNextToLeaveHours());
-            cais.addCamiao(parque.dequeue());
-          }
-        } else {
-          cais.addCamiao(parque.dequeue());
-        }
-      }
-
-      if (parque.enqueue(camiao7)) {
-        if (cais.getMaxCapacity() == 6) {
-          if (cais.getNextToLeaveHours() != null) {
-            cais.removeCamiao(cais.getNextToLeaveHours());
-            cais.addCamiao(parque.dequeue());
-          }
-        } else {
-          cais.addCamiao(parque.dequeue());
-        }
-      }
-
+      
       System.out.println("\n");
       System.out.println("---=====- Cais -=====---");
       cais.escreverCamioes();
@@ -185,9 +162,15 @@ public class GestaoDeCamioes {
       cais.sortList();
       cais.escreverCamioes();
     } else if (escolha == 4) {
-
+      
       cais.sortCargaDescarga();
       cais.escreverCamioes();
+    } else if (escolha == 5) {
+      System.out.println("\n");
+      System.out.println("---=====- Cais -=====---");
+      cais.escreverCamioes();
+      System.out.println("---=====- Fila de espera -=====---");
+      System.out.println(parque);
     }
   }
 }

@@ -48,6 +48,7 @@ public class Menu {
     System.out.println("2. Procurar entre pesos");
     System.out.println("3. Ordenar por espaço livre");
     System.out.println("4. Ordenar por Carga & Descarga");
+    System.out.println("5. Mostrar todos os cais");
     System.out.println("");
 
     System.out.print("Opção: ");
