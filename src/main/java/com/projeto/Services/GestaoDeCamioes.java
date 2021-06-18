@@ -53,6 +53,12 @@ public class GestaoDeCamioes {
       tara = scanner.nextDouble();
       System.out.print("Carga -> ");
       carga = scanner.nextDouble();
+
+      while (tara < carga) {
+        System.out.print("Exesso de carga! Insira nova carga -> ");
+        carga = scanner.nextDouble();
+      }
+
       System.out.print("Tipo de Registo (1 = CARREGAR, 2 = DESCARREGAR) -> ");
       cargaDescarga = scanner.nextInt();
       // ------------------------------------------------------------------
@@ -60,11 +66,6 @@ public class GestaoDeCamioes {
       while (cargaDescarga != 1 && cargaDescarga != 2) {
         System.out.print("Escolha o tipo de Registo (1 = CARREGAR, 2 = DESCARREGAR) -> ");
         cargaDescarga = scanner.nextInt();
-      }
-      
-      while (tara < carga) {
-        System.out.print("Exesso de carga! Insira nova carga");
-        carga = scanner.nextDouble();
       }
       
       if (cargaDescarga == 1) {
@@ -81,6 +82,7 @@ public class GestaoDeCamioes {
       Camiao camiao4 = new Camiao("12-ZA-54", armazem, "14:45H", "21-06-2021", 37, type, 3500.00, 3310.40);
       Camiao camiao5 = new Camiao("76-SG-97", armazem, "13:00H", "21-06-2021", 8, type, 1700.00, 1600.00);
       Camiao camiao6 = new Camiao("AS-22-AB", armazem, "09:55H", "26-06-2021", 10, type, 2500.00, 2430.20);
+      Camiao camiao7 = new Camiao("23-DA-11", armazem, "09:55H", "26-06-2021", 10, type, 2500.00, 2430.20);
       // ---------------------------------------------------------------------------------------------------- 
       
       if (parque.enqueue(camiao1)) {
@@ -137,6 +139,28 @@ public class GestaoDeCamioes {
           cais.addCamiao(parque.dequeue());
         }
       }
+
+      if (parque.enqueue(camiao6)) {
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
+      }
+
+      if (parque.enqueue(camiao7)) {
+        if (cais.getMaxCapacity() == 6) {
+          if (cais.getNextToLeaveHours() != null) {
+            cais.removeCamiao(cais.getNextToLeaveHours());
+            cais.addCamiao(parque.dequeue());
+          }
+        } else {
+          cais.addCamiao(parque.dequeue());
+        }
+      }
       
       System.out.println("\n");
       System.out.println("---=====- Cais -=====---");
@@ -156,7 +180,7 @@ public class GestaoDeCamioes {
       pesoMaximo = scanner.nextDouble();
       // ------------------------------------------------------------------
       
-      cais.pesquisaCamioes(pesoMinimo, pesoMaximo);
+      cais.pesoMinMax(pesoMinimo, pesoMaximo);
     } else if (escolha == 3) {
       
       cais.sortList();

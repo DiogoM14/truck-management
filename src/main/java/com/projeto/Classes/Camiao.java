@@ -90,14 +90,13 @@ public class Camiao {
   @Override
   public String toString() {
     return "{" +
-      " matricula='" + getMatricula() + "'" +
-      ", partida='" + getPartida() + "'" +
-      ", hora_chegada='" + getHora_chegada() + "'" +
-      ", dia_chegada='" + getDia_chegada() + "'" +
-      ", horasNoCais='" + getHorasNoCais() + "'" +
-      ", cargaDescarga='" + getCargaDescarga() + "'" +
-      ", tara='" + getTara() + "'" +
-      ", carga='" + getCarga() + "'" +
+      " Matricula='" + getMatricula() + "'" +
+      ", Hora de chegada='" + getHora_chegada() + "'" +
+      ", Dia de Chegada='" + getDia_chegada() + "'" +
+      ", Tempo no cais='" + getHorasNoCais() + "'" +
+      ", Função='" + getCargaDescarga() + "'" +
+      ", Tara='" + getTara() + "'" +
+      ", Peso da Carga='" + getCarga() + "'" +
       "}";
   }
 }

@@ -76,21 +76,21 @@ public class LinkedList<T> {
     return current.getElement();
   }
   
-  public String getByPeso(double pesoMinimo, double pesoMaximo) {
-    Node<Camiao> current = head;
-    String result = "";
-    int count = 1;
+  // public String getByPeso(double pesoMinimo, double pesoMaximo) {
+  //   Node<Camiao> current = head;
+  //   String result = "";
+  //   int count = 1;
     
-    while (current != null) {
-      result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
-      current = current.getNext();
-      count++;
-    }
+  //   while (current != null) {
+  //     result += "Camiao " + count + ": " + current.getElement().toString() + "\n";
+  //     current = current.getNext();
+  //     count++;
+  //   }
     
-    System.out.println(result);
+  //   System.out.println(result);
     
-    return result;
-  }
+  //   return result;
+  // }
   
   public void sortList() {
     Node<Camiao> current = head, index = null;
@@ -169,7 +169,7 @@ public class LinkedList<T> {
     System.out.println(result);
   }
   
-  public void pesquisaCamioes(Double min, Double max) {
+  public void pesoMinMax(Double min, Double max) {
     Node<Camiao> current = head;
     String result = "";
     int count = 1;
